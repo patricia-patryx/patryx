@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Paleta oficial PATRYX (Manual de Identidade Visual) */
+  --color-azul: #2e4a5e;
+  --color-azul-escuro: #071f2e;
+  --color-salvia: #6b7f6f;
+  --color-verde-escuro: #2a3b2e;
+  --color-cobre: #9b6048;
+  --color-cobre-profundo: #894019;
+  --color-offwhite: #f4f0e8;
+  --color-offwhite-claro: #fdf4e8;
+  --color-tinta: #1b2a33;
+
+  --font-serif: var(--font-lora), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: var(--color-offwhite);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+}
+
+/* Recorte orgânico em folha do hero (overlay padrão do pacote de máscara) */
+.hero-photo {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  background: var(--color-azul-escuro);
+}
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: url("/images/overlay-hero.svg") center / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
+.divisor {
+  display: block;
+  width: 6.5rem;
+  height: 1px;
+  margin-inline: auto;
+  background: var(--color-cobre);
 }
