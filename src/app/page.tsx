@@ -11,6 +11,7 @@ import {
   IconCabeca,
   IconCalendario,
   IconCheck,
+  IconCiclo,
   IconCoracao,
   IconCrescimento,
   IconDocumento,
@@ -207,7 +208,7 @@ const ciclo: { Icon: Icone; titulo: string }[] = [
 const intervencoes = [
   "Workshops",
   "Vivências",
-  "Academia de Liderança",
+  "Treinamento de liderança",
   "Palestras",
   "Atendimentos",
 ];
@@ -595,32 +596,97 @@ export default function Home() {
               Do diagnóstico de NR-1
             </Titulo>
             <div className="mt-14 grid items-center gap-10 lg:grid-cols-[1fr_auto]">
-              <div className="relative mx-auto grid w-full max-w-3xl gap-5 sm:grid-cols-2 sm:gap-x-44 sm:gap-y-8">
-                {ciclo.map(({ Icon, titulo }, i) => (
-                  <div
-                    key={titulo}
-                    className={`flex items-center gap-4 rounded-full bg-offwhite/[0.04] px-5 py-4 ring-1 backdrop-blur-sm ${
-                      i === 0 ? "ring-cobre" : "ring-offwhite/25"
-                    } ${i === 2 ? "sm:order-4" : ""} ${i === 3 ? "sm:order-3" : ""}`}
-                  >
-                    <span className="grid size-12 shrink-0 place-items-center rounded-full bg-offwhite/5 ring-1 ring-offwhite/30">
-                      <Icon className="size-7" />
-                    </span>
-                    <span className="text-sm font-medium uppercase tracking-[0.12em]">
-                      <span className="mr-2 text-cobre">{i + 1}.</span>
-                      {titulo}
-                    </span>
-                  </div>
-                ))}
-                <div className="order-last grid place-items-center sm:absolute sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2">
-                  <div className="grid size-36 place-items-center rounded-full bg-azul-escuro text-center shadow-[0_0_40px_rgba(155,96,72,0.35)] ring-1 ring-cobre/70">
+              <div>
+                {/* Ciclo circular (tablet e computador) */}
+                <div className="relative mx-auto hidden aspect-square w-full max-w-[40rem] sm:block">
+                  <svg viewBox="0 0 400 400" aria-hidden className="absolute inset-0 size-full">
+                    <defs>
+                      <marker id="seta-ciclo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                        <path d="M0 0 10 5 0 10Z" fill="#9b6048" />
+                      </marker>
+                    </defs>
+                    <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(244,240,232,0.12)" strokeWidth="1" strokeDasharray="2 6" />
+                    {[0, 90, 180, 270].map((inicio) => {
+                      const r = 140;
+                      const a1 = ((inicio - 90 + 24) * Math.PI) / 180;
+                      const a2 = ((inicio - 90 + 66) * Math.PI) / 180;
+                      const x1 = 200 + r * Math.cos(a1);
+                      const y1 = 200 + r * Math.sin(a1);
+                      const x2 = 200 + r * Math.cos(a2);
+                      const y2 = 200 + r * Math.sin(a2);
+                      return (
+                        <path
+                          key={inicio}
+                          d={`M${x1.toFixed(1)} ${y1.toFixed(1)} A${r} ${r} 0 0 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`}
+                          fill="none"
+                          stroke="#9b6048"
+                          strokeWidth="1.6"
+                          markerEnd="url(#seta-ciclo)"
+                        />
+                      );
+                    })}
+                  </svg>
+
+                  {ciclo.map(({ Icon, titulo }, i) => {
+                    const pos = [
+                      "left-1/2 top-[15%]",
+                      "left-[85%] top-1/2",
+                      "left-1/2 top-[85%]",
+                      "left-[15%] top-1/2",
+                    ][i];
+                    return (
+                      <div
+                        key={titulo}
+                        className={`absolute ${pos} flex w-40 -translate-x-1/2 -translate-y-7 flex-col items-center gap-3 text-center`}
+                      >
+                        <span
+                          className={`grid size-14 place-items-center rounded-full bg-azul-escuro shadow-[0_0_24px_rgba(155,96,72,0.3)] ring-1 ${
+                            i === 0 ? "ring-cobre" : "ring-offwhite/40"
+                          }`}
+                        >
+                          <Icon className="size-7" />
+                        </span>
+                        <span className="text-xs font-medium uppercase leading-snug tracking-[0.12em]">
+                          <span className="text-cobre">{i + 1}.</span> {titulo}
+                        </span>
+                      </div>
+                    );
+                  })}
+
+                  <div className="absolute left-1/2 top-1/2 grid size-36 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[radial-gradient(circle,rgba(155,96,72,0.25),transparent_70%)] text-center ring-1 ring-cobre/60">
                     <div>
-                      <p className="text-lg font-semibold tracking-wider">CICLO</p>
+                      <IconCiclo className="mx-auto mb-1 size-7 text-cobre" />
+                      <p className="text-base font-semibold tracking-[0.2em]">CICLO</p>
                       <p className="font-serif text-xl italic text-cobre">vivo</p>
                       <p className="mt-1 text-xs text-offwhite/75">3 meses a 1 ano</p>
                     </div>
                   </div>
                 </div>
+
+                {/* Ciclo em sequência (celular) */}
+                <ol className="mx-auto max-w-sm sm:hidden">
+                  {ciclo.map(({ Icon, titulo }, i) => (
+                    <li key={titulo} className="flex flex-col items-center">
+                      <div className="flex w-full items-center gap-4 rounded-full bg-offwhite/[0.04] px-5 py-3 ring-1 ring-offwhite/20">
+                        <span className="grid size-11 shrink-0 place-items-center rounded-full bg-azul-escuro ring-1 ring-cobre/70">
+                          <Icon className="size-6" />
+                        </span>
+                        <span className="text-xs font-medium uppercase tracking-[0.12em]">
+                          <span className="text-cobre">{i + 1}.</span> {titulo}
+                        </span>
+                      </div>
+                      <span aria-hidden className="my-1 text-cobre">↓</span>
+                    </li>
+                  ))}
+                  <li className="flex items-center justify-center gap-3 rounded-full px-5 py-3 text-center ring-1 ring-cobre/60">
+                    <IconCiclo className="size-6 text-cobre" />
+                    <span className="text-sm">
+                      <span className="font-semibold tracking-[0.15em]">CICLO</span>{" "}
+                      <em className="font-serif text-cobre">vivo</em> · volta ao diagnóstico ·
+                      3 meses a 1 ano
+                    </span>
+                  </li>
+                </ol>
               </div>
               <div className="rounded-2xl bg-offwhite/[0.04] p-6 ring-1 ring-offwhite/15 lg:w-64">
                 <p className="text-xs font-medium uppercase tracking-[0.22em] text-cobre">

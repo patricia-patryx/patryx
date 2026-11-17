@@ -52,11 +52,11 @@ body {
 /* Padrões oficiais da marca (ID visual PATRYX) */
 .textura-escura {
   background-image: url("/images/padrao-verde-tonal.png");
-  background-size: 520px 520px;
+  background-size: 1040px 1040px;
 }
 .textura-clara {
   background-image: url("/images/padrao-folhas-tonal.png");
-  background-size: 600px 448px;
+  background-size: 1200px 896px;
 }
 .faixa-padrao {
   background: #fbf7ef url("/images/padrao-colorido.webp") center / 362px 272px repeat;
