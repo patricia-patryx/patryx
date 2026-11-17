@@ -8,8 +8,10 @@
   --color-verde-escuro: #2a3b2e;
   --color-cobre: #9b6048;
   --color-cobre-profundo: #894019;
+  --color-cobre-claro: #d9a587;
   --color-offwhite: #f4f0e8;
-  --color-offwhite-claro: #fdf4e8;
+  --color-papel: #f7f3ec;
+  --color-areia: #efe9df;
   --color-tinta: #1b2a33;
 
   --font-serif: var(--font-lora), Georgia, serif;
@@ -22,12 +24,12 @@ html {
 }
 
 body {
-  background: var(--color-offwhite);
+  background: var(--color-papel);
   color: var(--color-tinta);
   font-family: var(--font-sans);
 }
 
-/* Recorte orgânico em folha do hero (overlay padrão do pacote de máscara) */
+/* Recorte orgânico em folha do hero (overlay do pacote de máscara) */
 .hero-photo {
   position: relative;
   aspect-ratio: 3 / 2;
@@ -39,40 +41,4 @@ body {
   inset: -1px;
   background: url("/images/overlay-hero.svg") center / 100% 100% no-repeat;
   pointer-events: none;
-}
-
-.divisor {
-  display: block;
-  width: 6.5rem;
-  height: 1px;
-  margin-inline: auto;
-  background: var(--color-cobre);
-}
-
-/* Padrões oficiais da marca (ID visual PATRYX) */
-.textura-escura {
-  background-image: url("/images/padrao-verde-tonal.png");
-  background-size: 1040px 1040px;
-}
-.textura-clara {
-  background-image: url("/images/padrao-folhas-tonal.png");
-  background-size: 1200px 896px;
-}
-.faixa-padrao {
-  background: #fbf7ef url("/images/padrao-colorido.webp") center / 362px 272px repeat;
-}
-
-/* Entrada suave ao rolar (só com JS ativo e sem preferência por menos movimento) */
-@media (prefers-reduced-motion: no-preference) {
-  .js-revelar [data-revelar] {
-    opacity: 0;
-    transform: translateY(28px);
-    transition:
-      opacity 0.8s ease,
-      transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  .js-revelar [data-revelar].visivel {
-    opacity: 1;
-    transform: none;
-  }
 }

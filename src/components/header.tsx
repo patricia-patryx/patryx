@@ -52,13 +52,13 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
         solido
-          ? "bg-azul-escuro/95 shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-md"
+          ? "bg-azul-escuro border-b border-offwhite/10"
           : "bg-transparent"
       }`}
     >
       <div
-        className={`mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 transition-[padding] duration-300 sm:px-8 ${
-          solido ? "py-3" : "py-5"
+        className={`mx-auto flex max-w-[80rem] items-center justify-between gap-6 px-5 transition-[padding] duration-300 sm:px-10 lg:px-20 ${
+          solido ? "py-3.5" : "py-5"
         }`}
       >
         <a href="#" aria-label="PATRYX, início" className="shrink-0">
@@ -69,14 +69,14 @@ export function Header() {
             height={470}
             unoptimized
             className={`w-auto transition-[height] duration-300 ${
-              solido ? "h-8 sm:h-9" : "h-9 sm:h-11"
+              solido ? "h-7 sm:h-8" : "h-8 sm:h-9"
             }`}
             loading="eager"
           />
         </a>
 
         <nav aria-label="Seções" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-4">
             {nav.map(({ id, label }) => {
               const atual = ativo === id;
               return (
@@ -84,17 +84,11 @@ export function Header() {
                   <a
                     href={`#${id}`}
                     aria-current={atual ? "true" : undefined}
-                    className={`group relative block px-3.5 py-2 text-[0.8rem] font-medium uppercase tracking-[0.14em] transition-colors ${
+                    className={`block px-1 py-2 text-sm transition-colors ${
                       atual ? "text-offwhite" : "text-offwhite/70 hover:text-offwhite"
                     }`}
                   >
                     {label}
-                    <span
-                      aria-hidden
-                      className={`absolute inset-x-3.5 -bottom-0.5 h-px origin-left bg-cobre transition-transform duration-300 ${
-                        atual ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                      }`}
-                    />
                   </a>
                 </li>
               );
@@ -102,17 +96,16 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-5">
           <a
             href={AREA_CLIENTE_URL}
-            className="hidden items-center gap-2 rounded-full px-4 py-2 text-sm text-offwhite ring-1 ring-offwhite/30 transition-colors hover:bg-offwhite/10 hover:ring-offwhite/60 sm:flex"
+            className="hidden text-sm text-offwhite/90 transition-colors hover:text-offwhite sm:block"
           >
-            <IconPessoa className="size-4 text-cobre" />
             Área do cliente
           </a>
           <a
             href={CHECK_URL}
-            className="hidden rounded-full bg-cobre px-5 py-2 text-sm font-medium text-offwhite shadow-sm transition-colors hover:bg-cobre-profundo sm:block"
+            className="hidden rounded-full bg-offwhite px-5 py-2.5 text-sm font-medium text-azul-escuro transition-colors hover:bg-white sm:block"
           >
             Check gratuito
           </a>
