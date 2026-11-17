@@ -1,4 +1,8 @@
 import Image from "next/image";
+import { Divisor } from "@/components/divisor";
+import { Header } from "@/components/header";
+import { Revelar } from "@/components/revelar";
+import { AREA_CLIENTE_URL, CHECK_URL } from "@/lib/links";
 import type { ComponentType, ReactNode, SVGProps } from "react";
 import {
   IconAlvo,
@@ -28,19 +32,14 @@ type Icone = ComponentType<SVGProps<SVGSVGElement>>;
 
 const EMAIL = "contato@patryx.com.br";
 const TELEFONE = "+55 19 99537-0331";
-// Páginas do sistema atual (check gratuito e área logada)
-const CHECK_URL = "https://www.patryx.com.br/check";
-const AREA_CLIENTE_URL = "https://www.patryx.com.br/auth";
 const WHATSAPP = `https://wa.me/5519995370331?text=${encodeURIComponent(
   "Olá! Quero falar com a PATRYX.",
 )}`;
 
-const nav = [
-  { href: "#a-patryx", label: "A PATRYX" },
-  { href: "#metodo", label: "Método" },
-  { href: "#plataforma", label: "Plataforma" },
-  { href: "#quem-conduz", label: "Quem conduz" },
-  { href: "#contato", label: "Contato" },
+const destaques: { Icon: Icone; texto: string }[] = [
+  { Icon: IconDocumento, texto: "Laudo NR-1 assinado por psicóloga com CRP" },
+  { Icon: IconCabeca, texto: "Método C.P.P. de transformação de liderança" },
+  { Icon: IconCrescimento, texto: "Plataforma própria com evolução documentada" },
 ];
 
 const problemas: { Icon: Icone; texto: string }[] = [
@@ -246,7 +245,7 @@ function BotaoCheck({ className = "" }: { className?: string }) {
   return (
     <a
       href={CHECK_URL}
-      className={`inline-flex items-center justify-center rounded-md bg-cobre px-6 py-3 text-sm font-medium text-offwhite shadow-sm transition-colors hover:bg-cobre-profundo focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-offwhite ${className}`}
+      className={`inline-flex items-center justify-center rounded-full bg-cobre px-7 py-3.5 text-sm font-medium text-offwhite shadow-[0_10px_30px_-10px_rgba(155,96,72,0.8)] transition-all hover:-translate-y-0.5 hover:bg-cobre-profundo focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-offwhite ${className}`}
     >
       Começar pelo check gratuito
     </a>
@@ -271,7 +270,7 @@ function Titulo({
   return (
     <div className={`${centro ? "text-center" : ""} ${className}`}>
       <h2
-        className={`font-serif text-3xl leading-tight sm:text-4xl lg:text-[2.6rem] ${
+        className={`font-serif text-[2rem] leading-[1.12] sm:text-[2.6rem] lg:text-[3.1rem] ${
           claro ? "text-offwhite" : "text-tinta"
         }`}
       >
@@ -283,9 +282,7 @@ function Titulo({
           </>
         )}
       </h2>
-      <span
-        className={`mt-5 block h-px w-24 bg-cobre ${centro ? "mx-auto" : ""}`}
-      />
+      <Divisor centro={centro} className="mt-6" />
     </div>
   );
 }
@@ -305,68 +302,31 @@ function Rotulo({ children, claro = false }: { children: ReactNode; claro?: bool
 export default function Home() {
   return (
     <>
-      {/* Cabeçalho */}
-      <header className="absolute inset-x-0 top-0 z-30">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 border-b border-offwhite/15 px-5 py-4 sm:px-8">
-          <a href="#" aria-label="PATRYX, início" className="shrink-0">
-            <Image
-              src="/images/logo-claro.webp"
-              alt="PATRYX"
-              width={900}
-              height={289}
-              className="h-9 w-auto sm:h-11"
-              loading="eager"
-            />
-          </a>
-          <nav className="hidden items-center gap-8 text-sm text-offwhite/90 lg:flex">
-            {nav.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="transition-colors hover:text-offwhite"
-              >
-                {item.label}
-              </a>
-            ))}
-            <span aria-hidden className="h-px w-8 bg-cobre" />
-          </nav>
-          <div className="flex items-center gap-4 sm:gap-6">
-            <a
-              href={AREA_CLIENTE_URL}
-              className="flex items-center gap-2 text-sm text-offwhite/90 transition-colors hover:text-offwhite"
-            >
-              <IconPessoa className="size-5 text-cobre" />
-              <span className="hidden sm:inline">Área do cliente</span>
-              <span className="sr-only sm:hidden">Área do cliente</span>
-            </a>
-            <a
-              href={CHECK_URL}
-              className="rounded-md bg-cobre px-4 py-2 text-sm font-medium text-offwhite transition-colors hover:bg-cobre-profundo"
-            >
-              Check gratuito
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header />
+      <Revelar />
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-azul-escuro pt-28 text-offwhite lg:min-h-[40rem] lg:pt-0">
-          <div className="relative z-20 mx-auto grid max-w-7xl items-center gap-10 px-5 pb-16 sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:pb-0 lg:pt-32">
-            <div className="max-w-2xl lg:pb-24">
+        <section className="textura-escura relative overflow-hidden bg-azul-escuro pt-28 text-offwhite lg:min-h-[46rem] lg:pt-0">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -left-40 top-10 size-[42rem] rounded-full bg-[radial-gradient(circle,rgba(46,74,94,0.55),transparent_65%)]"
+          />
+          <div className="relative z-20 mx-auto grid max-w-7xl items-center gap-10 px-5 pb-16 sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:pb-0 lg:pt-40">
+            <div className="max-w-2xl lg:pb-32">
               <Rotulo claro>Cultura · Mensuração · Impacto</Rotulo>
-              <h1 className="mt-6 font-serif text-4xl leading-[1.12] sm:text-5xl lg:text-[3.1rem] xl:text-[3.3rem]">
+              <h1 className="mt-7 font-serif text-[2.6rem] leading-[1.08] sm:text-6xl lg:text-[3.2rem] xl:text-[3.45rem]">
                 Cultura você sente.
                 <br />
                 Liderança você mede.
                 <br />
-                <em>E é por ela que tudo começa.</em>
+                <em className="text-[#e9c3a8]">E é por ela que tudo começa.</em>
               </h1>
-              <p className="mt-6 max-w-md text-base leading-7 text-offwhite/85">
+              <p className="mt-7 max-w-md text-lg leading-8 text-offwhite/80">
                 Diagnóstico, desenvolvimento de liderança e tecnologia própria
                 para acompanhar a evolução da sua empresa.
               </p>
-              <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-5">
+              <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
                 <BotaoCheck />
                 <a
                   href="#metodo"
@@ -392,18 +352,23 @@ export default function Home() {
             </div>
           </div>
 
-          <Image
-            src="/images/folhas.webp"
-            alt=""
-            width={900}
-            height={610}
-            className="pointer-events-none absolute -bottom-10 -right-16 z-10 hidden w-72 rotate-[160deg] lg:block"
-          />
         </section>
 
+        {/* Faixa de destaques */}
+        <div className="border-y border-offwhite/10 bg-[#0b2636] px-5 text-offwhite sm:px-8">
+          <ul className="mx-auto grid max-w-6xl divide-offwhite/10 sm:grid-cols-3 sm:divide-x">
+            {destaques.map(({ Icon, texto }) => (
+              <li key={texto} className="flex items-center gap-4 py-6 sm:justify-center sm:px-6">
+                <Icon className="size-8 shrink-0 text-cobre" />
+                <span className="text-sm leading-5 text-offwhite/85">{texto}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* O problema */}
-        <section className="bg-offwhite-claro px-5 py-16 sm:px-8 sm:py-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <section className="bg-offwhite-claro px-5 py-20 sm:px-8 sm:py-28">
+          <div data-revelar className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <Titulo quebra italico="PATRYX resolve">
                 Os problemas que a
@@ -411,7 +376,7 @@ export default function Home() {
               <ul className="mt-10 space-y-6">
                 {problemas.map(({ Icon, texto }) => (
                   <li key={texto} className="flex items-center gap-5 text-lg">
-                    <span className="grid size-14 shrink-0 place-items-center rounded-full ring-1 ring-cobre/50">
+                    <span className="grid size-16 shrink-0 place-items-center rounded-full bg-offwhite shadow-[0_8px_24px_-12px_rgba(27,42,51,0.35)] ring-1 ring-cobre/30">
                       <Icon className="size-9 text-cobre" />
                     </span>
                     <span>{texto}</span>
@@ -431,33 +396,34 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-2xl bg-offwhite p-8 shadow-sm ring-1 ring-cobre/15 sm:p-12">
+            <div className="textura-escura relative overflow-hidden rounded-3xl bg-azul-escuro p-8 text-offwhite shadow-[0_30px_60px_-20px_rgba(7,31,46,0.55)] sm:p-12">
+              <div aria-hidden className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-[radial-gradient(circle,rgba(155,96,72,0.35),transparent_65%)]" />
               <Image
                 src="/images/folhas.webp"
                 alt=""
                 width={900}
                 height={610}
-                className="pointer-events-none absolute -right-24 -top-10 w-72 rotate-[200deg] opacity-15"
+                className="pointer-events-none absolute -bottom-16 -right-24 w-72 rotate-[150deg] opacity-30"
               />
               <span className="block h-px w-16 bg-cobre" />
-              <p className="mt-8 font-serif text-3xl leading-tight text-tinta sm:text-4xl">
+              <p className="relative mt-8 font-serif text-3xl leading-tight sm:text-4xl">
                 E o resultado disso
                 <br />
                 <em>tem nome e número:</em>
               </p>
-              <p className="mt-6 text-base leading-7 text-tinta/80">
+              <p className="relative mt-6 text-base leading-7 text-offwhite/75">
                 uma empresa com 100 funcionários e liderança disfuncional pode
                 gastar entre
               </p>
-              <p className="mt-3 font-serif text-4xl font-semibold leading-tight text-cobre sm:text-5xl">
+              <p className="relative mt-4 font-serif text-5xl font-semibold leading-[1.05] text-[#d9926f] sm:text-6xl">
                 R$ 300.000 e<br />
                 R$ 900.000
               </p>
-              <p className="mt-3 font-serif text-2xl italic text-tinta">
+              <p className="relative mt-4 font-serif text-2xl italic text-offwhite">
                 por ano só em turnover.
               </p>
               <span className="mt-8 block h-px w-16 bg-cobre" />
-              <p className="mt-4 text-xs tracking-wider text-tinta/60">
+              <p className="relative mt-4 text-xs tracking-wider text-offwhite/50">
                 Fontes: SHRM, 2026 · Robert Half, 2025
               </p>
             </div>
@@ -467,20 +433,27 @@ export default function Home() {
         {/* Quem somos */}
         <section
           id="a-patryx"
-          className="scroll-mt-4 bg-offwhite px-5 py-16 sm:px-8 sm:py-24"
+          className="relative overflow-hidden bg-offwhite px-5 py-20 sm:px-8 sm:py-28"
         >
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+          <Image
+            src="/images/simbolo-cor.webp"
+            alt=""
+            width={512}
+            height={486}
+            className="pointer-events-none absolute -bottom-24 -left-24 w-[26rem] opacity-[0.07]"
+          />
+          <div data-revelar className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
             <div>
               <Titulo italico="somos">Quem</Titulo>
-              <p className="mt-8 text-2xl leading-snug text-tinta/90 sm:text-[1.7rem]">
+              <p className="mt-8 font-serif text-2xl leading-snug text-tinta sm:text-[2rem]">
                 A PATRYX é uma consultoria de transformação de liderança
                 sustentada por tecnologia própria.
               </p>
             </div>
-            <ul className="divide-y divide-cobre/25">
+            <ul className="space-y-4">
               {pilares.map(({ Icon, titulo, texto }) => (
-                <li key={titulo} className="flex gap-6 py-7 first:pt-0 last:pb-0">
-                  <span className="grid size-16 shrink-0 place-items-center rounded-full bg-offwhite-claro">
+                <li key={titulo} className="flex gap-6 rounded-2xl bg-offwhite-claro/80 p-6 shadow-[0_12px_30px_-18px_rgba(27,42,51,0.35)] ring-1 ring-tinta/5 transition-transform hover:-translate-y-1">
+                  <span className="grid size-16 shrink-0 place-items-center rounded-full bg-offwhite ring-1 ring-salvia/30">
                     <Icon className="size-10 text-salvia" />
                   </span>
                   <div>
@@ -498,8 +471,8 @@ export default function Home() {
         </section>
 
         {/* Para quem servimos */}
-        <section className="relative overflow-hidden bg-azul-escuro px-5 py-16 text-offwhite sm:px-8 sm:py-24">
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-0">
+        <section className="textura-escura relative overflow-hidden bg-azul-escuro px-5 py-20 text-offwhite sm:px-8 sm:py-28">
+          <div data-revelar className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-0">
             <div className="lg:pr-14">
               <Titulo claro italico="servimos">
                 Para quem
@@ -511,15 +484,17 @@ export default function Home() {
               <ul className="mt-8 space-y-6">
                 {perfil.map(({ Icon, texto }) => (
                   <li key={texto} className="flex items-start gap-5">
-                    <Icon className="size-10 shrink-0 text-cobre" />
-                    <span className="pt-1 leading-7 text-offwhite/85">
+                    <span className="grid size-14 shrink-0 place-items-center rounded-full bg-offwhite/5 ring-1 ring-cobre/50">
+                      <Icon className="size-8 text-cobre" />
+                    </span>
+                    <span className="pt-3 leading-7 text-offwhite/85">
                       {texto}
                     </span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="flex flex-col justify-center border-t border-cobre/40 pt-12 lg:border-l lg:border-t-0 lg:pl-14 lg:pt-0">
+            <div className="flex flex-col justify-center rounded-3xl bg-gradient-to-br from-offwhite/[0.07] to-transparent p-8 ring-1 ring-offwhite/10 sm:p-10 lg:ml-6">
               <IconPessoa className="size-16 text-cobre" />
               <span className="mt-4 block h-px w-14 bg-cobre" />
               <p className="mt-6 font-serif text-3xl leading-tight sm:text-4xl">
@@ -534,17 +509,17 @@ export default function Home() {
         </section>
 
         {/* O que entregamos */}
-        <section className="bg-offwhite-claro px-5 py-16 sm:px-8 sm:py-24">
-          <div className="mx-auto max-w-6xl">
+        <section className="bg-offwhite-claro px-5 py-20 sm:px-8 sm:py-28">
+          <div data-revelar className="mx-auto max-w-6xl">
             <Titulo italico="entregamos">O que</Titulo>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-tinta/80">
               Um ciclo completo de transformação de liderança, do diagnóstico
               ao monitoramento contínuo, conduzido por metodologia própria e
               registrado na plataforma PATRYX do início ao fim.
             </p>
-            <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-cobre/25">
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
               {entregas.map(({ Icon, titulo, cor, itens }) => (
-                <div key={titulo} className="md:px-8 md:first:pl-0 md:last:pr-0">
+                <div key={titulo} className="rounded-3xl bg-offwhite p-7 shadow-[0_20px_40px_-24px_rgba(27,42,51,0.35)] ring-1 ring-tinta/5 transition-transform hover:-translate-y-1 sm:p-8">
                   <div className="flex items-center gap-4">
                     <span className={`grid size-16 shrink-0 place-items-center rounded-full ${cor}`}>
                       <Icon className="size-10" />
@@ -554,7 +529,7 @@ export default function Home() {
                   <ul className="mt-8 space-y-5">
                     {itens.map(({ Icon: I, texto }) => (
                       <li key={texto} className="flex items-start gap-4">
-                        <span className="grid size-10 shrink-0 place-items-center rounded-full bg-offwhite">
+                        <span className="grid size-10 shrink-0 place-items-center rounded-full bg-offwhite-claro">
                           <I className="size-6 text-cobre" />
                         </span>
                         <span className="pt-2 leading-6 text-tinta/85">{texto}</span>
@@ -570,9 +545,9 @@ export default function Home() {
         {/* Método C.P.P. */}
         <section
           id="metodo"
-          className="scroll-mt-4 bg-verde-escuro px-5 py-16 text-offwhite sm:px-8 sm:py-24"
+          className="textura-escura bg-verde-escuro px-5 py-20 text-offwhite sm:px-8 sm:py-28"
         >
-          <div className="mx-auto max-w-6xl">
+          <div data-revelar className="mx-auto max-w-6xl">
             <Titulo claro centro quebra italico="As chaves da liderança">
               O Método C.P.P.
             </Titulo>
@@ -590,7 +565,7 @@ export default function Home() {
                       className="absolute right-[calc(50%+2.75rem)] top-10 hidden h-px w-[calc(100%-5.5rem+1.5rem)] bg-cobre/60 lg:block"
                     />
                   )}
-                  <span className="grid size-20 place-items-center rounded-full ring-1 ring-cobre">
+                  <span className="relative z-10 grid size-20 place-items-center rounded-full bg-gradient-to-b from-[#3d5243] to-verde-escuro shadow-[0_0_0_6px_rgba(42,59,46,1),0_0_30px_rgba(155,96,72,0.35)] ring-1 ring-cobre">
                     <Icon className="size-9 text-offwhite/90" />
                   </span>
                   <p className="mt-5 text-xs font-medium uppercase tracking-[0.22em] text-cobre">
@@ -614,8 +589,8 @@ export default function Home() {
         </section>
 
         {/* Ciclo vivo */}
-        <section className="bg-azul-escuro px-5 py-16 text-offwhite sm:px-8 sm:py-24">
-          <div className="mx-auto max-w-6xl">
+        <section className="textura-escura bg-azul-escuro px-5 py-20 text-offwhite sm:px-8 sm:py-28">
+          <div data-revelar className="mx-auto max-w-6xl">
             <Titulo claro quebra italico="à evolução contínua.">
               Do diagnóstico de NR-1
             </Titulo>
@@ -624,7 +599,7 @@ export default function Home() {
                 {ciclo.map(({ Icon, titulo }, i) => (
                   <div
                     key={titulo}
-                    className={`flex items-center gap-4 rounded-full px-5 py-4 ring-1 ${
+                    className={`flex items-center gap-4 rounded-full bg-offwhite/[0.04] px-5 py-4 ring-1 backdrop-blur-sm ${
                       i === 0 ? "ring-cobre" : "ring-offwhite/25"
                     } ${i === 2 ? "sm:order-4" : ""} ${i === 3 ? "sm:order-3" : ""}`}
                   >
@@ -638,7 +613,7 @@ export default function Home() {
                   </div>
                 ))}
                 <div className="order-last grid place-items-center sm:absolute sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2">
-                  <div className="grid size-36 place-items-center rounded-full bg-azul-escuro text-center ring-1 ring-cobre/70">
+                  <div className="grid size-36 place-items-center rounded-full bg-azul-escuro text-center shadow-[0_0_40px_rgba(155,96,72,0.35)] ring-1 ring-cobre/70">
                     <div>
                       <p className="text-lg font-semibold tracking-wider">CICLO</p>
                       <p className="font-serif text-xl italic text-cobre">vivo</p>
@@ -647,7 +622,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-xl p-6 ring-1 ring-offwhite/15 lg:w-64">
+              <div className="rounded-2xl bg-offwhite/[0.04] p-6 ring-1 ring-offwhite/15 lg:w-64">
                 <p className="text-xs font-medium uppercase tracking-[0.22em] text-cobre">
                   Execução & intervenções
                 </p>
@@ -665,8 +640,8 @@ export default function Home() {
         </section>
 
         {/* Marcadores e eixos */}
-        <section className="bg-offwhite-claro px-5 py-16 sm:px-8 sm:py-24">
-          <div className="mx-auto max-w-6xl">
+        <section className="textura-clara bg-offwhite-claro px-5 py-20 sm:px-8 sm:py-28">
+          <div data-revelar className="mx-auto max-w-6xl">
             <Titulo quebra italico="Três eixos desenvolvidos.">
               Quatro marcadores medidos.
             </Titulo>
@@ -675,7 +650,7 @@ export default function Home() {
                 {marcadores.map(({ Icon, texto }) => (
                   <div
                     key={texto}
-                    className="rounded-xl bg-offwhite p-7 shadow-sm ring-1 ring-tinta/5"
+                    className="rounded-3xl bg-offwhite p-7 shadow-[0_20px_40px_-24px_rgba(27,42,51,0.35)] ring-1 ring-tinta/5 transition-transform hover:-translate-y-1"
                   >
                     <span className="grid size-16 place-items-center rounded-full bg-offwhite-claro">
                       <Icon className="size-10 text-verde-escuro" />
@@ -685,7 +660,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="relative overflow-hidden rounded-xl bg-verde-escuro p-8 text-offwhite">
+              <div className="textura-escura relative overflow-hidden rounded-3xl bg-verde-escuro p-8 text-offwhite shadow-[0_30px_60px_-24px_rgba(42,59,46,0.7)] sm:p-10">
                 <Image
                   src="/images/folhas.webp"
                   alt=""
@@ -712,9 +687,10 @@ export default function Home() {
         {/* Plataforma */}
         <section
           id="plataforma"
-          className="scroll-mt-4 bg-offwhite px-5 py-16 sm:px-8 sm:py-24"
+          className="relative overflow-hidden bg-offwhite px-5 py-20 sm:px-8 sm:py-28"
         >
-          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+          <div aria-hidden className="pointer-events-none absolute -right-40 top-1/4 size-[40rem] rounded-full bg-[radial-gradient(circle,rgba(107,127,111,0.22),transparent_65%)]" />
+          <div data-revelar className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
             <div>
               <Titulo italico="PATRYX">A plataforma</Titulo>
               <p className="mt-8 text-lg leading-8 text-tinta/85">
@@ -727,7 +703,7 @@ export default function Home() {
               <ul className="mt-5 space-y-4">
                 {recursos.map(({ Icon, cor, texto }) => (
                   <li key={texto} className="flex items-center gap-4">
-                    <span className={`grid size-11 shrink-0 place-items-center rounded-full ${cor}`}>
+                    <span className={`grid size-11 shrink-0 place-items-center rounded-full shadow-[0_8px_20px_-10px_rgba(27,42,51,0.5)] ${cor}`}>
                       <Icon className="size-6" />
                     </span>
                     <span className="border-l border-cobre/50 pl-4 leading-6 text-tinta/85">
@@ -760,7 +736,7 @@ export default function Home() {
                 width={1400}
                 height={930}
                 sizes="(min-width: 1024px) 55vw, 100vw"
-                className="h-auto w-full"
+                className="h-auto w-full drop-shadow-[0_30px_40px_rgba(27,42,51,0.18)]"
               />
               <figcaption className="-mt-4 text-right font-serif text-sm italic text-tinta/70">
                 Imagem ilustrativa
@@ -772,19 +748,23 @@ export default function Home() {
         {/* Quem conduz */}
         <section
           id="quem-conduz"
-          className="scroll-mt-4 bg-offwhite-claro px-5 py-16 sm:px-8 sm:py-24"
+          className="textura-clara bg-offwhite-claro px-5 py-20 sm:px-8 sm:py-28"
         >
-          <div className="mx-auto max-w-6xl">
+          <div data-revelar className="mx-auto max-w-6xl">
             <Titulo italico="o processo">Quem conduz</Titulo>
             <div className="mt-12 grid items-center gap-10 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16">
+              <div className="relative mx-auto w-full max-w-sm">
+                <span aria-hidden className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl ring-1 ring-cobre" />
+                <span aria-hidden className="absolute -left-5 -top-5 size-24 rounded-full bg-salvia/25" />
               <Image
                 src="/images/patricia-hirayama.webp"
                 alt="Patricia Figueiredo, psicóloga e fundadora da PATRYX"
                 width={900}
                 height={1125}
                 sizes="(min-width: 768px) 24rem, 100vw"
-                className="mx-auto aspect-[4/5] w-full max-w-sm object-cover"
+                className="relative aspect-[4/5] w-full rounded-3xl object-cover shadow-[0_30px_60px_-24px_rgba(27,42,51,0.5)]"
               />
+              </div>
               <div>
                 <h3 className="font-serif text-4xl leading-tight text-tinta sm:text-5xl">
                   Patricia <em>Figueiredo</em>
@@ -803,7 +783,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <blockquote className="mt-14 text-center font-serif text-xl leading-relaxed sm:text-2xl">
+            <blockquote className="mx-auto mt-16 max-w-4xl border-y border-cobre/30 py-8 text-center font-serif text-xl leading-relaxed sm:text-2xl">
               <p className="italic text-tinta">
                 A experiência clínica que sustenta a transformação da PATRYX.
               </p>
@@ -817,8 +797,9 @@ export default function Home() {
         {/* Próximo passo */}
         <section
           id="contato"
-          className="relative scroll-mt-4 overflow-hidden bg-azul-escuro px-5 py-16 text-offwhite sm:px-8 sm:py-24"
+          className="textura-escura relative overflow-hidden bg-azul-escuro px-5 py-20 text-offwhite sm:px-8 sm:py-28"
         >
+          <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 size-[50rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(155,96,72,0.22),transparent_60%)]" />
           <Image
             src="/images/folhas.webp"
             alt=""
@@ -826,10 +807,10 @@ export default function Home() {
             height={610}
             className="pointer-events-none absolute -bottom-6 -left-20 w-64 rotate-[20deg] opacity-90"
           />
-          <div className="relative mx-auto max-w-5xl text-center">
+          <div data-revelar className="relative mx-auto max-w-5xl text-center">
             <Rotulo claro>Próximo passo</Rotulo>
-            <span className="mx-auto mt-4 block h-px w-16 bg-cobre" />
-            <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-5xl">
+            <Divisor centro className="mt-4" />
+            <h2 className="mt-6 font-serif text-[2.2rem] leading-tight sm:text-5xl lg:text-[3.4rem]">
               Do primeiro clique ao <em>plano em execução</em>
             </h2>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-offwhite/80">
@@ -847,17 +828,18 @@ export default function Home() {
                       className="absolute right-[calc(50%+2.5rem)] top-8 hidden h-px w-[calc(100%-5rem+1rem)] bg-cobre/60 lg:block"
                     />
                   )}
-                  <span className="grid size-16 place-items-center rounded-full bg-verde-escuro ring-1 ring-offwhite/30">
+                  <span className="relative grid size-16 place-items-center rounded-full bg-gradient-to-b from-[#3d5243] to-verde-escuro ring-1 ring-cobre/70">
                     <Icon className="size-8" />
+                    <span className="absolute -right-1 -top-1 grid size-6 place-items-center rounded-full bg-cobre text-[0.7rem] font-semibold">
+                      {i + 1}
+                    </span>
                   </span>
-                  <span className="text-sm font-medium">
-                    {i + 1} · {texto}
-                  </span>
+                  <span className="text-sm font-medium">{texto}</span>
                 </li>
               ))}
             </ol>
 
-            <div className="mx-auto mt-12 flex max-w-4xl items-start gap-5 rounded-xl p-6 text-left ring-1 ring-offwhite/20">
+            <div className="mx-auto mt-12 flex max-w-4xl items-start gap-5 rounded-2xl bg-offwhite/[0.04] p-6 text-left ring-1 ring-offwhite/15">
               <IconInfo className="size-8 shrink-0 text-cobre" />
               <p className="border-l border-offwhite/20 pl-5 text-sm leading-6 text-offwhite/80">
                 Quando indicado pelo diagnóstico de NR-1, o plano de ação pode

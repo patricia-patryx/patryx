@@ -18,6 +18,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
 }
 
 body {
@@ -46,4 +47,29 @@ body {
   height: 1px;
   margin-inline: auto;
   background: var(--color-cobre);
+}
+
+/* Padrão tonal de folhas da marca */
+.textura-escura {
+  background-image: url("/images/padrao-folhas-escuro.svg");
+  background-size: 260px 260px;
+}
+.textura-clara {
+  background-image: url("/images/padrao-folhas-claro.svg");
+  background-size: 260px 260px;
+}
+
+/* Entrada suave ao rolar (só com JS ativo e sem preferência por menos movimento) */
+@media (prefers-reduced-motion: no-preference) {
+  .js-revelar [data-revelar] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .js-revelar [data-revelar].visivel {
+    opacity: 1;
+    transform: none;
+  }
 }
