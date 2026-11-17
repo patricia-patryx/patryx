@@ -19,6 +19,7 @@ import {
   IconLupa,
   IconPessoa,
   IconPessoas,
+  IconSeta,
   IconTempestade,
   IconWhatsapp,
 } from "@/components/icons";
@@ -27,8 +28,11 @@ type Icone = ComponentType<SVGProps<SVGSVGElement>>;
 
 const EMAIL = "contato@patryx.com.br";
 const TELEFONE = "+55 19 99537-0331";
+// Páginas do sistema atual (check gratuito e área logada)
+const CHECK_URL = "https://www.patryx.com.br/check";
+const AREA_CLIENTE_URL = "https://www.patryx.com.br/auth";
 const WHATSAPP = `https://wa.me/5519995370331?text=${encodeURIComponent(
-  "Olá! Quero fazer o check gratuito da PATRYX.",
+  "Olá! Quero falar com a PATRYX.",
 )}`;
 
 const nav = [
@@ -152,12 +156,14 @@ const etapas: {
   Icon: Icone;
   fase: string;
   titulo: [string, string?];
+  segundaLinhaNormal?: boolean;
   texto: string;
 }[] = [
   {
     Icon: IconLupa,
     fase: "Fase 0",
-    titulo: ["Diagnóstico de NR-1"],
+    titulo: ["Diagnóstico", "de NR-1"],
+    segundaLinhaNormal: true,
     texto:
       "Avaliação dos riscos psicossociais e da organização do trabalho. É a base para definir prioridades, plano de ação e próximos passos.",
   },
@@ -185,7 +191,8 @@ const etapas: {
   {
     Icon: IconCrescimento,
     fase: "Contínuo",
-    titulo: ["Monitoramento"],
+    titulo: ["Monitoramento", "contínuo"],
+    segundaLinhaNormal: true,
     texto:
       "Acompanhamento, indicadores e remedição para comparar o antes e o depois, sustentando a evolução.",
   },
@@ -238,9 +245,7 @@ const passos: { Icon: Icone; texto: string }[] = [
 function BotaoCheck({ className = "" }: { className?: string }) {
   return (
     <a
-      href={WHATSAPP}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={CHECK_URL}
       className={`inline-flex items-center justify-center rounded-md bg-cobre px-6 py-3 text-sm font-medium text-offwhite shadow-sm transition-colors hover:bg-cobre-profundo focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-offwhite ${className}`}
     >
       Começar pelo check gratuito
@@ -251,12 +256,14 @@ function BotaoCheck({ className = "" }: { className?: string }) {
 function Titulo({
   children,
   italico,
+  quebra = false,
   claro = false,
   centro = false,
   className = "",
 }: {
   children: ReactNode;
   italico?: ReactNode;
+  quebra?: boolean;
   claro?: boolean;
   centro?: boolean;
   className?: string;
@@ -271,7 +278,7 @@ function Titulo({
         {children}
         {italico && (
           <>
-            {" "}
+            {quebra ? <br /> : " "}
             <em className={claro ? "" : "text-cobre"}>{italico}</em>
           </>
         )}
@@ -323,14 +330,22 @@ export default function Home() {
             ))}
             <span aria-hidden className="h-px w-8 bg-cobre" />
           </nav>
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-md bg-cobre px-4 py-2 text-sm font-medium text-offwhite transition-colors hover:bg-cobre-profundo"
-          >
-            Check gratuito
-          </a>
+          <div className="flex items-center gap-4 sm:gap-6">
+            <a
+              href={AREA_CLIENTE_URL}
+              className="flex items-center gap-2 text-sm text-offwhite/90 transition-colors hover:text-offwhite"
+            >
+              <IconPessoa className="size-5 text-cobre" />
+              <span className="hidden sm:inline">Área do cliente</span>
+              <span className="sr-only sm:hidden">Área do cliente</span>
+            </a>
+            <a
+              href={CHECK_URL}
+              className="rounded-md bg-cobre px-4 py-2 text-sm font-medium text-offwhite transition-colors hover:bg-cobre-profundo"
+            >
+              Check gratuito
+            </a>
+          </div>
         </div>
       </header>
 
@@ -390,7 +405,9 @@ export default function Home() {
         <section className="bg-offwhite-claro px-5 py-16 sm:px-8 sm:py-24">
           <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
-              <Titulo italico="que a gente resolve">O problema</Titulo>
+              <Titulo quebra italico="PATRYX resolve">
+                Os problemas que a
+              </Titulo>
               <ul className="mt-10 space-y-6">
                 {problemas.map(({ Icon, texto }) => (
                   <li key={texto} className="flex items-center gap-5 text-lg">
@@ -424,7 +441,9 @@ export default function Home() {
               />
               <span className="block h-px w-16 bg-cobre" />
               <p className="mt-8 font-serif text-3xl leading-tight text-tinta sm:text-4xl">
-                E o resultado disso <em>tem nome e número:</em>
+                E o resultado disso
+                <br />
+                <em>tem nome e número:</em>
               </p>
               <p className="mt-6 text-base leading-7 text-tinta/80">
                 uma empresa com 100 funcionários e liderança disfuncional pode
@@ -554,7 +573,7 @@ export default function Home() {
           className="scroll-mt-4 bg-verde-escuro px-5 py-16 text-offwhite sm:px-8 sm:py-24"
         >
           <div className="mx-auto max-w-6xl">
-            <Titulo claro centro italico="As chaves da liderança">
+            <Titulo claro centro quebra italico="As chaves da liderança">
               O Método C.P.P.
             </Titulo>
             <p className="mx-auto mt-6 max-w-3xl text-center text-lg leading-8 text-offwhite/85">
@@ -563,7 +582,7 @@ export default function Home() {
               qualquer momento.
             </p>
             <ol className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
-              {etapas.map(({ Icon, fase, titulo, texto }, i) => (
+              {etapas.map(({ Icon, fase, titulo, segundaLinhaNormal, texto }, i) => (
                 <li key={fase} className="relative flex flex-col items-center text-center">
                   {i > 0 && (
                     <span
@@ -583,7 +602,7 @@ export default function Home() {
                     {titulo[1] && (
                       <>
                         <br />
-                        <em>{titulo[1]}</em>
+                        {segundaLinhaNormal ? titulo[1] : <em>{titulo[1]}</em>}
                       </>
                     )}
                   </p>
@@ -597,7 +616,7 @@ export default function Home() {
         {/* Ciclo vivo */}
         <section className="bg-azul-escuro px-5 py-16 text-offwhite sm:px-8 sm:py-24">
           <div className="mx-auto max-w-6xl">
-            <Titulo claro italico="à evolução contínua.">
+            <Titulo claro quebra italico="à evolução contínua.">
               Do diagnóstico de NR-1
             </Titulo>
             <div className="mt-14 grid items-center gap-10 lg:grid-cols-[1fr_auto]">
@@ -648,7 +667,7 @@ export default function Home() {
         {/* Marcadores e eixos */}
         <section className="bg-offwhite-claro px-5 py-16 sm:px-8 sm:py-24">
           <div className="mx-auto max-w-6xl">
-            <Titulo italico="Três eixos desenvolvidos.">
+            <Titulo quebra italico="Três eixos desenvolvidos.">
               Quatro marcadores medidos.
             </Titulo>
             <div className="mt-12 grid gap-5 lg:grid-cols-[1fr_1fr_1.15fr]">
@@ -724,6 +743,15 @@ export default function Home() {
                 o que acontece dentro do processo e possa apresentar ao board
                 com clareza e segurança.
               </p>
+              <a
+                href={AREA_CLIENTE_URL}
+                className="group mt-8 inline-flex items-center gap-3 font-medium text-cobre"
+              >
+                <span className="border-b border-cobre pb-1">
+                  Acessar a área do cliente
+                </span>
+                <IconSeta className="size-5 transition-transform group-hover:translate-x-1" />
+              </a>
             </div>
             <figure>
               <Image
@@ -735,7 +763,7 @@ export default function Home() {
                 className="h-auto w-full"
               />
               <figcaption className="-mt-4 text-right font-serif text-sm italic text-tinta/70">
-                Imagens ilustrativas
+                Imagem ilustrativa
               </figcaption>
             </figure>
           </div>
@@ -870,9 +898,14 @@ export default function Home() {
             className="h-9 w-auto"
           />
           <span aria-hidden className="hidden h-8 w-px bg-offwhite/30 sm:block" />
-          <p className="text-sm text-offwhite/70">
-            Cultura · Mensuração · Impacto
-          </p>
+          <nav className="flex items-center gap-6 text-sm text-offwhite/80">
+            <a href={CHECK_URL} className="hover:text-cobre">
+              Check gratuito
+            </a>
+            <a href={AREA_CLIENTE_URL} className="hover:text-cobre">
+              Área do cliente
+            </a>
+          </nav>
         </div>
       </footer>
     </>
