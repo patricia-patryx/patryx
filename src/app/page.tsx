@@ -823,7 +823,7 @@ export default function Home() {
                 <span aria-hidden className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl ring-1 ring-cobre" />
                 <span aria-hidden className="absolute -left-5 -top-5 size-24 rounded-full bg-salvia/25" />
               <Image
-                src="/images/patricia-hirayama.webp"
+                src="/images/patricia-figueiredo.webp"
                 alt="Patricia Figueiredo, psicóloga e fundadora da PATRYX"
                 width={900}
                 height={1125}
