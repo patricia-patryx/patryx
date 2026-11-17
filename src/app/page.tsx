@@ -91,14 +91,6 @@ export default function Home() {
           id="a-patryx"
           className="relative overflow-hidden bg-azul-escuro pt-28 text-offwhite lg:min-h-[40rem] lg:pt-0"
         >
-          <Image
-            src="/images/folhas.webp"
-            alt=""
-            width={900}
-            height={610}
-            className="pointer-events-none absolute -left-28 -top-12 z-10 w-52 -rotate-[130deg] opacity-90 lg:-left-24 lg:w-60"
-          />
-
           <div className="relative z-20 mx-auto grid max-w-7xl items-center gap-10 px-5 pb-16 sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:pb-0 lg:pt-32">
             <div className="max-w-2xl lg:pb-24">
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-cobre">
