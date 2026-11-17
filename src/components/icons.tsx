@@ -92,3 +92,173 @@ export function IconSeta(p: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function IconPessoas(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <circle cx="24" cy="15" r="5" />
+      <circle cx="11" cy="19" r="4" />
+      <circle cx="37" cy="19" r="4" />
+      <path d="M14 38v-3a10 10 0 0 1 20 0v3M4 36v-2a7 7 0 0 1 9-6.7M44 36v-2a7 7 0 0 0-9-6.7" />
+    </svg>
+  );
+}
+
+export function IconPessoa(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <circle cx="24" cy="15" r="7" />
+      <path d="M10 41a14 14 0 0 1 28 0" />
+    </svg>
+  );
+}
+
+export function IconLiderTravado(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <circle cx="20" cy="15" r="7" />
+      <path d="M6 41a14 14 0 0 1 22-11.5" />
+      <circle cx="35" cy="35" r="7" />
+      <path d="m31 31 8 8M39 31l-8 8" />
+    </svg>
+  );
+}
+
+export function IconTempestade(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M14 30h21a8 8 0 0 0 0-16 11 11 0 0 0-21 2 7 7 0 0 0 0 14Z" />
+      <path d="m25 25-4 7h6l-4 8" />
+    </svg>
+  );
+}
+
+export function IconBroto(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M24 42V22" />
+      <path d="M24 26C24 16 18 10 8 10c0 10 6 16 16 16ZM24 22c0-9 5-14 15-14 0 9-5 14-15 14Z" />
+    </svg>
+  );
+}
+
+export function IconLupa(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <circle cx="21" cy="21" r="12" />
+      <path d="m30 30 11 11" />
+    </svg>
+  );
+}
+
+export function IconCabeca(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M17 42v-7c-5-3-8-8-8-14A15 15 0 0 1 39 20l3 7h-4v6a4 4 0 0 1-4 4h-4v5" />
+      <path d="M25 26v-6M25 22c0-4 3-6 7-6 0 4-3 6-7 6ZM25 24c0-3-2-5-6-5 0 3 2 5 6 5Z" />
+    </svg>
+  );
+}
+
+export function IconCoracao(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M24 40S7 30 7 18a9 9 0 0 1 17-4 9 9 0 0 1 17 4c0 12-17 22-17 22Z" />
+    </svg>
+  );
+}
+
+export function IconCrescimento(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M8 41h32" />
+      <rect x="11" y="31" width="5" height="10" />
+      <rect x="21" y="26" width="5" height="15" />
+      <rect x="31" y="21" width="5" height="20" />
+      <path d="M9 24 22 14l6 4 12-10M33 8h7v7" />
+    </svg>
+  );
+}
+
+export function IconDocumento(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M12 6h17l9 9v27H12Z" />
+      <path d="M29 6v9h9M18 24h12M18 30h12M18 36h8" />
+    </svg>
+  );
+}
+
+export function IconCalendario(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <rect x="7" y="10" width="34" height="31" rx="3" />
+      <path d="M7 19h34M16 6v8M32 6v8" />
+    </svg>
+  );
+}
+
+export function IconEscudo(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M24 5 39 11v11c0 10-6 17-15 21C15 39 9 32 9 22V11Z" />
+      <path d="m18 24 4 4 8-8" />
+    </svg>
+  );
+}
+
+export function IconAlvo(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <circle cx="22" cy="26" r="15" />
+      <circle cx="22" cy="26" r="9" />
+      <circle cx="22" cy="26" r="3" />
+      <path d="m22 26 16-16M33 8l5 2 2 5" />
+    </svg>
+  );
+}
+
+export function IconEngrenagem(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <circle cx="24" cy="24" r="6" />
+      <path d="M24 6v6M24 36v6M6 24h6M36 24h6M11.3 11.3l4.2 4.2M32.5 32.5l4.2 4.2M11.3 36.7l4.2-4.2M32.5 15.5l4.2-4.2" />
+    </svg>
+  );
+}
+
+export function IconInfo(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <circle cx="24" cy="24" r="17" />
+      <path d="M24 22v11M24 15v1" />
+    </svg>
+  );
+}
+
+export function IconEmail(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <rect x="6" y="11" width="36" height="26" rx="2" />
+      <path d="m7 13 17 13 17-13" />
+    </svg>
+  );
+}
+
+export function IconWhatsapp(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M8 40l2.5-8.5A16 16 0 1 1 17 37.6Z" />
+      <path d="M18 17c0 7 6 13 13 13l2-3-4-2-2 2c-2-1-4-3-5-5l2-2-2-4Z" />
+    </svg>
+  );
+}
+
+export function IconCheck(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <rect x="8" y="8" width="32" height="32" rx="3" />
+      <path d="m16 24 6 6 11-12" />
+    </svg>
+  );
+}
