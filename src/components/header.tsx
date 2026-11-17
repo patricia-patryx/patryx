@@ -63,10 +63,11 @@ export function Header() {
       >
         <a href="#" aria-label="PATRYX, início" className="shrink-0">
           <Image
-            src="/images/logo-claro.webp"
+            src="/images/logo-offwhite.svg"
             alt="PATRYX"
-            width={900}
-            height={289}
+            width={1985}
+            height={470}
+            unoptimized
             className={`w-auto transition-[height] duration-300 ${
               solido ? "h-8 sm:h-9" : "h-9 sm:h-11"
             }`}

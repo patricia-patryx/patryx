@@ -783,7 +783,14 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <blockquote className="mx-auto mt-16 max-w-4xl border-y border-cobre/30 py-8 text-center font-serif text-xl leading-relaxed sm:text-2xl">
+            <blockquote className="mx-auto mt-16 max-w-4xl text-center font-serif text-xl leading-relaxed sm:text-2xl">
+              <Image
+                src="/images/separador-simbolo.webp"
+                alt=""
+                width={1417}
+                height={164}
+                className="mx-auto mb-8 h-auto w-full max-w-xl"
+              />
               <p className="italic text-tinta">
                 A experiência clínica que sustenta a transformação da PATRYX.
               </p>
@@ -793,6 +800,9 @@ export default function Home() {
             </blockquote>
           </div>
         </section>
+
+        {/* Faixa com o padrão principal da marca */}
+        <div aria-hidden className="faixa-padrao h-28 sm:h-36" />
 
         {/* Próximo passo */}
         <section
@@ -873,10 +883,11 @@ export default function Home() {
       <footer className="bg-azul-escuro px-5 pb-10 text-offwhite sm:px-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-4 border-t border-offwhite/10 pt-8 sm:flex-row sm:gap-8">
           <Image
-            src="/images/logo-claro.webp"
+            src="/images/logo-offwhite.svg"
             alt="PATRYX"
-            width={900}
-            height={289}
+            width={1985}
+            height={470}
+            unoptimized
             className="h-9 w-auto"
           />
           <span aria-hidden className="hidden h-8 w-px bg-offwhite/30 sm:block" />

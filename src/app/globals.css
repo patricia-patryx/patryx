@@ -49,14 +49,17 @@ body {
   background: var(--color-cobre);
 }
 
-/* Padrão tonal de folhas da marca */
+/* Padrões oficiais da marca (ID visual PATRYX) */
 .textura-escura {
-  background-image: url("/images/padrao-folhas-escuro.svg");
-  background-size: 260px 260px;
+  background-image: url("/images/padrao-verde-tonal.png");
+  background-size: 520px 520px;
 }
 .textura-clara {
-  background-image: url("/images/padrao-folhas-claro.svg");
-  background-size: 260px 260px;
+  background-image: url("/images/padrao-folhas-tonal.png");
+  background-size: 600px 448px;
+}
+.faixa-padrao {
+  background: #fbf7ef url("/images/padrao-colorido.webp") center / 362px 272px repeat;
 }
 
 /* Entrada suave ao rolar (só com JS ativo e sem preferência por menos movimento) */
