@@ -188,3 +188,29 @@ strong,b{font-weight:500}
 .met-rigor h2{max-width:17ch;margin-bottom:16px}.met-rigor .bio{max-width:60ch;color:#f1e7d9}
 .met-rigor .assinatura{margin-top:20px;color:#ebc8a9;font-size:.87rem}
 @media(max-width:760px){.met-composicao{grid-template-columns:1fr;gap:30px}.met-composicao h1{margin:12px 0 17px;font-size:clamp(2.65rem,9vw,4rem)}.met-abertura{padding:20px 0 44px}.met-mapa{padding:26px 7px 19px;border-top-right-radius:40px}.met-eixo{grid-template-columns:1fr;gap:18px}.met-eixo header{align-items:center}.met-rigor .wrap{grid-template-columns:1fr;gap:20px}.met-rigor figure img{width:114px}.met-eixos h2{max-width:17ch}.met-rigor h2{margin-bottom:12px}}
+
+/* Páginas legais (Privacidade e Termos) */
+.legal-abertura{padding:26px 0 clamp(48px,6vw,80px)}
+.legal-abertura .nr-back{display:inline-block;margin-bottom:clamp(28px,3vw,44px)}
+.legal-abertura h1{font-size:clamp(2.6rem,4.6vw,4.3rem);margin:16px 0 14px}
+.legal-data{color:#d8cdbf;font-size:.9rem}
+.legal{background:var(--paper);padding:clamp(52px,6vw,96px) 0}
+.legal-grid{display:grid;grid-template-columns:minmax(200px,260px) minmax(0,720px);gap:clamp(36px,6vw,96px);align-items:start}
+.legal-sumario{position:sticky;top:28px;max-height:calc(100vh - 56px);overflow:auto;padding-right:8px}
+.legal-sumario ol{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--line)}
+.legal-sumario li{border-bottom:1px solid var(--line)}
+.legal-sumario a{display:block;padding:9px 0;font-size:.82rem;line-height:1.4;color:#44574d}
+.legal-sumario a:hover{color:var(--copper)}
+.legal-texto{color:#2f4136;font-size:.98rem;line-height:1.72}
+.legal-texto h2{font-size:clamp(1.55rem,2.4vw,2.1rem);margin:clamp(40px,4.6vw,60px) 0 16px;padding-top:24px;border-top:1px solid var(--line);scroll-margin-top:24px}
+.legal-texto h2:first-child{margin-top:0;padding-top:0;border-top:0}
+.legal-texto h3{font-size:clamp(1.25rem,1.8vw,1.55rem);margin:32px 0 12px}
+.legal-texto p+p,.legal-texto ul+p,.legal-texto p+ul,.legal-texto ol+p,.legal-texto p+ol{margin-top:14px}
+.legal-texto ul,.legal-texto ol{padding-left:1.2em;margin-bottom:0}
+.legal-texto li+li{margin-top:8px}
+.legal-texto li::marker{color:var(--copper)}
+.legal-texto strong{font-weight:500;color:var(--forest)}
+.legal-texto a{color:var(--copper);text-decoration:underline;text-underline-offset:3px}
+.legal-texto .legal-ref{margin-top:22px;color:var(--copper);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+.legal-texto .legal-ref+p{margin-top:6px}
+@media(max-width:900px){.legal-grid{grid-template-columns:1fr}.legal-sumario{position:static;max-height:none}}
