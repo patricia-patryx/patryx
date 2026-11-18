@@ -221,3 +221,9 @@ strong,b{font-weight:500}
 .marker:hover img{transform:translateY(-3px)}
 @media(min-width:761px){.marker:first-child{padding-left:18px}.marker{padding-right:18px}}
 @media(prefers-reduced-motion:reduce){.marker,.marker img{transition:none}.marker:hover img{transform:none}}
+/* Itens de "O que se repete": mesmo destaque dos marcadores */
+.problem-list li{position:relative;padding-inline:14px;transition:background-color .3s ease}
+.problem-list li::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--copper);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.problem-list li:hover{background-color:#ead8bf}
+.problem-list li:hover::before{transform:scaleX(1)}
+@media(prefers-reduced-motion:reduce){.problem-list li,.problem-list li::before{transition:none}}
