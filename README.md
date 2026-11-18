@@ -1,18 +1,21 @@
-# Patryx
+# PATRYX
 
-Site da Patryx, feito com [Next.js](https://nextjs.org) e publicado na [Vercel](https://vercel.com).
+Site estático da PATRYX, publicado na [Vercel](https://vercel.com). Não há etapa de build nem dependências.
 
-## Desenvolvimento
+## Estrutura
+
+- `index.html`: página inicial
+- `nr-1/index.html`: página sobre a NR-1
+- `assets/`: imagens, fontes (Lora e Inter), CSS e scripts (menu e diagrama do Método C.P.P.)
+
+## Visualizar localmente
 
 ```bash
-npm install
-npm run dev
+python3 -m http.server 8000
 ```
 
-Abra http://localhost:3000.
+Abra http://localhost:8000.
 
-## Comandos
+## Rotas do sistema atual
 
-- `npm run dev`: servidor de desenvolvimento
-- `npm run build`: build de produção
-- `npm run lint`: verificação de código
+`/check`, `/auth` e `/metodologia` continuam no sistema existente em www.patryx.com.br.
