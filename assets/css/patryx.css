@@ -115,3 +115,6 @@ h1,h2,h3,.step-title{text-wrap:balance}
 .footer-bottom{padding-right:96px}
 .footer-col a{white-space:nowrap}
 @media(max-width:760px){.footer-bottom{padding-right:0;padding-bottom:96px}.footer-col a{white-space:normal}.footer-col a[href^="https://wa.me"]{white-space:nowrap}}
+/* Foto da abertura maior */
+@media(min-width:1051px){.hero-grid{grid-template-columns:1fr 1fr}.hero-visual{margin-right:-56px;margin-left:-28px}.hero-copy h1 em{white-space:nowrap}}
+@media(max-width:760px){.hero-visual{max-width:600px}}
