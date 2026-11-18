@@ -235,3 +235,6 @@ strong,b{font-weight:500}
 @media(max-width:760px){.nav{font-size:.7rem}.header .btn{font-size:.58rem}}
 /* Itens de "O que se repete" em uma linha no computador */
 @media(min-width:761px){.problem-list{width:max-content;min-width:100%}.problem-list li{white-space:nowrap;padding-inline:10px}}
+/* Ícone de ciclo no retorno do método */
+.return button{display:inline-flex;align-items:center;gap:9px}
+.return-icon{width:17px;height:17px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
