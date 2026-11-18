@@ -155,3 +155,36 @@ strong,b{font-weight:500}
 }
 .brand{flex-shrink:0}
 @media(max-width:380px){.brand img{width:104px}.menu{font-size:0;gap:0;padding-left:12px}.menu::after{width:20px}.header-inner{gap:12px}}
+
+/* Página Metodologia (pacote de implantação 2) */
+.met-abertura{padding:26px 0 clamp(52px,6vw,88px)}
+.met-abertura .nr-back{display:inline-block;margin-bottom:clamp(28px,3vw,48px)}
+.met-composicao{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(36px,5vw,80px);align-items:center}
+.met-composicao h1{font-size:clamp(2.75rem,4.9vw,4.8rem);margin:19px 0 22px}
+.met-composicao h1 em{display:block;color:#f1c5a5}
+.met-composicao .lead{color:#e9ddcf;max-width:45ch}
+.met-mapa{position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0 10px 10px 0;padding:clamp(34px,4.4vw,68px) 14px 30px;background:#f4e7d3;color:var(--forest);border-radius:0 70px 0 38px}
+.met-mapa:after{content:"";position:absolute;inset:9px -9px -9px 9px;border:1px solid #c29471;border-radius:0 70px 0 38px;z-index:-1;pointer-events:none;clip-path:polygon(100% 0,100% 100%,0 100%,0 calc(100% - 9px),calc(100% - 9px) calc(100% - 9px),calc(100% - 9px) 0)}
+.met-mapa a{display:grid;justify-items:center;align-content:center;gap:7px;padding-block:8px;text-align:center}
+.met-mapa a+a{border-left:1px solid #c9bba7}
+.met-mapa img{width:clamp(42px,5.4vw,76px);aspect-ratio:1;object-fit:contain;margin-bottom:9px}
+.met-mapa strong{font:400 clamp(1.38rem,2.65vw,2.5rem)/1.06 var(--serif);letter-spacing:-.045em}
+.met-mapa span{color:var(--copper);font-size:clamp(.72rem,1vw,.9rem)}
+.met-mapa a:hover strong{text-decoration:underline;text-underline-offset:5px}
+.met-eixos{padding-block:clamp(62px,7.7vw,112px)}
+.met-eixos h2,.met-rigor h2{font-size:clamp(2.15rem,4.4vw,4.1rem);margin:13px 0 30px}
+.met-eixo{display:grid;grid-template-columns:.32fr .68fr;gap:clamp(24px,5vw,76px);padding:clamp(28px,3.8vw,52px) 0;border-top:1px solid var(--line);scroll-margin-top:22px}
+.met-eixo:last-child{border-bottom:1px solid var(--line)}
+.met-eixo header{display:flex;align-items:flex-start;gap:clamp(14px,2vw,28px)}
+.met-eixo header img{width:clamp(42px,4vw,60px);height:auto;aspect-ratio:1;object-fit:contain}
+.met-eixo h3{font-size:clamp(2rem,3.2vw,3rem)}
+.met-eixo header p{margin-top:4px;color:var(--copper);font-size:.92rem}
+.met-eixo .met-pergunta{font:400 clamp(1.35rem,2.2vw,2rem)/1.22 var(--serif);letter-spacing:-.018em;max-width:34ch;text-wrap:balance}
+.met-eixo ul{margin:16px 0 0;padding-left:1.2em;max-width:61ch;color:#344a3c}
+.met-eixo li+li{margin-top:6px}.met-eixo li::marker{color:var(--copper)}
+.met-rigor{background:var(--forest);color:var(--paper);padding:clamp(42px,6vw,84px) 0}
+.met-rigor .wrap{display:grid;grid-template-columns:minmax(140px,260px) minmax(0,640px);align-items:center;justify-content:center;gap:clamp(30px,7vw,110px)}
+.met-rigor figure img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 30%;border-radius:46% 46% 0 0 / 26% 26% 0 0}
+.met-rigor h2{max-width:17ch;margin-bottom:16px}.met-rigor .bio{max-width:60ch;color:#f1e7d9}
+.met-rigor .assinatura{margin-top:20px;color:#ebc8a9;font-size:.87rem}
+@media(max-width:760px){.met-composicao{grid-template-columns:1fr;gap:30px}.met-composicao h1{margin:12px 0 17px;font-size:clamp(2.65rem,9vw,4rem)}.met-abertura{padding:20px 0 44px}.met-mapa{padding:26px 7px 19px;border-top-right-radius:40px}.met-eixo{grid-template-columns:1fr;gap:18px}.met-eixo header{align-items:center}.met-rigor .wrap{grid-template-columns:1fr;gap:20px}.met-rigor figure img{width:114px}.met-eixos h2{max-width:17ch}.met-rigor h2{margin-bottom:12px}}
