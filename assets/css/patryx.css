@@ -227,3 +227,6 @@ strong,b{font-weight:500}
 .problem-list li:hover{background-color:#ead8bf}
 .problem-list li:hover::before{transform:scaleX(1)}
 @media(prefers-reduced-motion:reduce){.problem-list li,.problem-list li::before{transition:none}}
+/* Composição em volta do notebook (folha e traços dourados) */
+.platform-device{isolation:isolate}
+.platform-ornament{position:absolute;inset:0;width:100%;height:100%;z-index:-1;overflow:visible;pointer-events:none}
