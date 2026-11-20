@@ -1,33 +1,33 @@
 const fases = {
-  diagnostico: {
-    rotulo: 'Fase 0',
-    titulo: 'Entender o ponto de partida',
-    texto: 'O diagnóstico de NR-1 mapeia riscos psicossociais e examina como o trabalho é organizado. Essa leitura ajuda o RH a definir as primeiras prioridades.',
-    resultado: 'Prioridades para o plano de ação.'
+  "diagnostico": {
+    "rotulo": "Momento 1",
+    "titulo": "Ouvir líderes e equipes",
+    "texto": "Líderes e colaboradores relatam como o trabalho acontece. O diagnóstico identifica fatores de risco e áreas que merecem atenção.",
+    "resultado": "Relatório do diagnóstico."
   },
-  pensar: {
-    rotulo: 'Ato I · Clareza',
-    titulo: 'Dar clareza às decisões',
-    texto: 'A liderança interpreta o diagnóstico, identifica padrões na equipe e define quais situações merecem atenção primeiro.',
-    resultado: 'Direção compartilhada e foco para a atuação.'
+  "devolutiva": {
+    "rotulo": "Momento 2",
+    "titulo": "Discutir os achados",
+    "texto": "A PATRYX apresenta o relatório e o orçamento do plano. Liderança e RH conversam sobre os achados e decidem quais prioridades levar adiante.",
+    "resultado": "Prioridades para o plano."
   },
-  sentir: {
-    rotulo: 'Ato II · Presença',
-    titulo: 'Escutar o que acontece na equipe',
-    texto: 'A liderança observa como escuta, reage e conduz conversas difíceis. Essa leitura ajuda a entender como as relações afetam o trabalho.',
-    resultado: 'Situações concretas para desenvolver escuta e presença.'
+  "plano": {
+    "rotulo": "Momento 3",
+    "titulo": "Escolher as ações do ciclo",
+    "texto": "Liderança e RH escolhem a duração do plano, as ações e os públicos. Em cada ação, Pensar, Sentir e Agir são trabalhados em conjunto.",
+    "resultado": "Cronograma na plataforma."
   },
-  agir: {
-    rotulo: 'Ato III · Potência',
-    titulo: 'Executar o que foi combinado',
-    texto: 'As prioridades se tornam ações, com responsáveis e momentos de acompanhamento. A equipe tem clareza sobre o que precisa acontecer.',
-    resultado: 'Plano em execução, com responsabilidades registradas.'
+  "acoes": {
+    "rotulo": "Momento 4",
+    "titulo": "Trabalhar os três eixos juntos",
+    "texto": "Em cada encontro, as pessoas refletem sobre uma situação, expressam como a vivem e combinam o que fazer na rotina. Ao final de cada ação, os participantes registram sua avaliação de satisfação por QR code.",
+    "resultado": "Combinados para aplicar no trabalho."
   },
-  monitorar: {
-    rotulo: 'Monitoramento contínuo',
-    titulo: 'Medir, comparar e ajustar',
-    texto: 'O RH compara indicadores, revisa a execução e identifica o que precisa mudar. A nova medição orienta as prioridades do próximo ciclo.',
-    resultado: 'Evolução registrada e ajustes para o próximo ciclo.'
+  "remedicao": {
+    "rotulo": "Momento 5",
+    "titulo": "Comparar os dois momentos",
+    "texto": "Ao fim do ciclo, a PATRYX reaplica o diagnóstico NR-1. RH e liderança comparam os resultados e discutem o que manter ou ajustar.",
+    "resultado": "Leitura da evolução e novas prioridades."
   }
 };
 const botoes = Array.from(document.querySelectorAll('.step'));
