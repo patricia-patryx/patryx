@@ -257,7 +257,7 @@ strong,b{font-weight:500}
 .cpp-casos summary:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
 .cpp-casos details>p,.cpp-casos dd{font-size:.96rem;color:#344a3c}
 .cpp-casos dl{margin:15px 0 23px}.cpp-casos dt{font-weight:600;color:var(--copper);margin-top:12px}.cpp-casos dd{margin:2px 0 0}
-#prevencao-do-esgotamento dl{container-type:inline-size}
+.cpp-casos-list{container-type:inline-size}
 @container (min-width:34rem){.cpp-linha{display:block}}
 @media(max-width:760px){.cpp-casos-grid{grid-template-columns:1fr}.cpp-casos h2{margin-bottom:12px}}
 
