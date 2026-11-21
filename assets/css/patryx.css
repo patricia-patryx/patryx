@@ -216,12 +216,12 @@ strong,b{font-weight:500}
 .legal-texto .legal-ref+p{margin-top:6px}
 @media(max-width:900px){.legal-grid{grid-template-columns:1fr}.legal-sumario{position:static;max-height:none}}
 /* Marcadores: fundo muda ao passar o mouse */
-.marker,#por-que-patryx .cpp-opcoes article{transition:background-color .3s ease}
-.marker,#por-que-patryx .cpp-opcoes article{position:relative}.marker::before,#por-que-patryx .cpp-opcoes article::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--copper);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}.marker:hover,#por-que-patryx .cpp-opcoes article:hover{background-color:#ead8bf}.marker:hover::before,#por-que-patryx .cpp-opcoes article:hover::before{transform:scaleX(1)}
+.marker,#por-que-patryx .cpp-opcoes article,.met-eixo{transition:background-color .3s ease}
+.marker,#por-que-patryx .cpp-opcoes article,.met-eixo{position:relative}.marker::before,#por-que-patryx .cpp-opcoes article::before,.met-eixo::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--copper);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}.marker:hover,#por-que-patryx .cpp-opcoes article:hover,.met-eixo:hover{background-color:#ead8bf}.marker:hover::before,#por-que-patryx .cpp-opcoes article:hover::before,.met-eixo:hover::before{transform:scaleX(1)}
 .marker img,.marker h3{transition:transform .3s ease}
 .marker:hover img{transform:translateY(-3px)}
 @media(min-width:761px){.marker:first-child{padding-left:18px}.marker{padding-right:18px}}
-@media(prefers-reduced-motion:reduce){.marker,.marker img,#por-que-patryx .cpp-opcoes article,#por-que-patryx .cpp-opcoes article::before{transition:none}.marker:hover img{transform:none}}
+@media(prefers-reduced-motion:reduce){.marker,.marker img,#por-que-patryx .cpp-opcoes article,#por-que-patryx .cpp-opcoes article::before,.met-eixo,.met-eixo::before{transition:none}.marker:hover img{transform:none}}
 /* Itens de "O que se repete": mesmo destaque dos marcadores */
 .problem-list li{position:relative;padding-inline:14px;transition:background-color .3s ease}
 .problem-list li::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--copper);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
