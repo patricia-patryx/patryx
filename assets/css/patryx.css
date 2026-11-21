@@ -358,3 +358,9 @@ strong,b{font-weight:500}
 }
 .person:has(+ .close){padding-bottom:clamp(32px,4vw,56px)}
 .person + .close{padding-top:clamp(24px,3vw,40px)}
+@media (min-width:761px){
+  .person + .close .split{
+    padding-top:clamp(40px,5.5vw,76px);
+    align-items:baseline;
+  }
+}
